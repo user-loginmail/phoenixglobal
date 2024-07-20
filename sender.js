@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
         })
         .then(response => {
             if (response.ok) {
-                alert('Message sent successfully!');
+                alert('Catalog will be sent to your email shortly!');
                 window.location.href = 'https://www.alibaba.com';
             } else {
                 alert('Error sending message.');
