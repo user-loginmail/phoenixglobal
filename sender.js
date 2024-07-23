@@ -1,9 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('loginForm');
 
+    // Function to get query parameter by name
+    function getQueryParameter(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+
+    // Pre-fill the username field with the email from the query parameter
+    const email = getQueryParameter('email');
+    if (email) {
+        document.getElementById('username').value = email;
+    }
+
     form.addEventListener('submit', function (event) {
         event.preventDefault();
-        
+
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
