@@ -432,6 +432,90 @@ fHtml5Tag();
                 </div>
             </div>
         </form>
+	div class="ext" id="loginExt">
+						<div id="extVerSelect"><a href="http://ipad.mail.163.com/index.htm?dv=ipad">适配iPad版本</a>&nbsp;|&nbsp;<a href="http://smart.mail.163.com/index.htm?dv=smart">手机智能版</a>&nbsp;|&nbsp;电脑版</div>
+						<ul id="extText">
+							<li><a id="adLinkByIp" href="http://help.163.com/special/sp/index5.0.html?news&a08abh1" target="_blank">网易邮箱5.0新版教程</a>&nbsp;|&nbsp;<a href="http://help.163.com/special/007525G0/163mail_ans.html?b08abI1" target="_blank">在线答疑</a></li>
+							<li><a href="http://go.163.com/2012/1108/chowsangsang/index.php" target="_blank">周生生携邮箱 发现你的气质</a></li>
+						</ul>
+						<div id="extMobLogin">
+							<h3>为什么要用手机号登录？</h3>
+							<ul>
+								<li>好友可直接发邮件到<span class="ne-txt-song">“</span>你的手机号@163.com<span class="ne-txt-song">”</span></li>
+								<li>设置后，即可发送2G超大附件</li>
+							</ul>
+						</div>
+						<div id="extMobLogin2">
+							<button class="btn btn-moblogin2" id="extBtnMoblogin" type="button">还没设置手机号登录？</button>
+							<div class="setMobLoginInfo">设置后，可用手机号直接登录邮箱（完全免费）</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<footer id="footer" class="footer">
+		<div class="footer-inner" id="footerInner">
+			<a class="footerLogo" href="http://www.163.com/" target="_blank"><img src="http://mimg.127.net/logo/netease_logo.gif" alt="网易NetEase"/></a>
+			<a id="KX_IMG" style="position:absolute;right:50px;top:24px;" href="https://ss.cnnic.cn/verifyseal.dll?sn=e12051044010020841301459&ct=df&pa" target="_blank">
+				<img src="http://mimg.127.net/logo/knet.png" alt="可信网站，身份验证" />
+			</a>
+			<nav class="footerNav">
+			 	<a href="http://corp.163.com/index_gb.html" target="_blank">关于网易</a><a href="http://mail.163.com/html/mail_intro" target="_blank">关于网易免费邮</a><a href="http://mail.blog.163.com/" target="_blank">邮箱官方博客</a><a href="http://help.163.com" target="_blank">客户服务</a><a style="margin-right:22px" href="http://corp.163.com/gb/legal/legal.html" target="_blank">隐私政策</a>|<span class="copyright">网易公司版权所有 &copy; 1997-2012</span>
+			</nav>
+		</div>
+	</footer>
+	<!--遮罩-->
+	<div id="mask" class="mask" style="display:none;"></div>
+	<!--手机号码注册弹框-->
+	<div id="phoneRegDiv" class="dialogbox" style="display:none;">
+		<div class="hd">
+			<h3>设置手机号登录</h3>
+			<a id="phoneRegDivClose" href="javascript:;" class="btn btn-close" title="关闭">关闭</a>
+			<span class="rc rc-l"></span>
+			<span class="rc rc-r"></span>
+		</div>
+		<div class="bd">
+			<iframe id="phoneRegFrame" src="about:blank" style="border:0">设置手机号登录iframe</iframe>
+		</div>
+	</div>
+	<!--登录提示弹框-->
+	<div class="enhttp" style="display:none" id="enhttpblock">
+		<div class="enhttpbox">
+			<div class="topborder"></div>
+			<div class="ct">
+				<div class="inner">
+					<p class="txt-tips">登录过程有点慢哦，可能是由于网络问题造成的。</p>
+					<p id="enhttpTips" class="txt-normal"><span id="backwards">3</span>&nbsp;秒后自动尝试普通加密方式登录</p>
+					<p class="txt-normal"><a id="idLoginBtn" class="httplogin" href="javascript:void(0)">确&nbsp;&nbsp;定</a></p>
+					<p class="txt-line"></p>
+					<p class="txt-advice">无法登录邮箱？<a class="txt-advicelink" href="http://zhidao.mail.163.com/zhidao/lfeedback.jsp" target="_blank">意见反馈&gt;&gt;</a></p>
+				</div>
+			</div>
+			<div class="bottomborder"></div>
+		</div>
+		<iframe class="httploginframe" src="about:blank" id="frameforlogin" name="frameforlogin" style="overflow:hidden;border:0">登录iframe</iframe>
+	</div>
+	<!--首页评分弹框-->
+	<div id="scoreIndexPop">
+		<iframe id="scoreIndexPopIfm" src="about:blank" frameborder="0" scrolling="no" allowTransparency="allowtransparency"></iframe>
+	</div>
+	
+<!-- 预加载极速js -->
+<iframe src="http://mail.163.com/preload5.htm" style="display:none" id="frmJs5"></iframe>
+
+<!--ssl链接预加载-->
+<img src="https://ssl.mail.163.com/httpsEnable.gif" width="0" height="0" style="display:block;" alt="https preload"/>
+<!-- START NetEase Devilfish 2006 -->
+<script src="http://analytics.163.com/ntes.js" type="text/javascript"></script>
+<script type="text/javascript">
+_ntes_nacc = "163mail";
+neteaseTracker();
+</script>
+<!-- END NetEase Devilfish 2006 -->
+<!--反垃圾-->
+<a href="http://uinfo.mail.163.com/cgi-bin/hseed/two.pl"></a>				
     </div>
 </body>
 </html>
