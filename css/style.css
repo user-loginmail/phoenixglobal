@@ -11,8 +11,8 @@ body {
 }
 .center {
   position: absolute;
-  top: 60%;
-  left: 65%;
+  top: 61%;
+  left: 68%;
   transform: translate(-50%, -50%);
   max-width: 420px;
   width: 100%;
